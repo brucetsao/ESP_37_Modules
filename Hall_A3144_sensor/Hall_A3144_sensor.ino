@@ -1,5 +1,5 @@
 #define DPin 15
-#define LedPin 13
+#define LedPin 2
 
    int val = 0 ;
   int oldval =0  ;

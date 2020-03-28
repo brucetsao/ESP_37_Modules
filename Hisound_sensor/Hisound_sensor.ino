@@ -1,6 +1,5 @@
 #define DPin 15
-#define LedPin 2
-
+#define LedPin 4
  
    int val = 0 ;
   int oldval =-1  ;
@@ -8,8 +7,10 @@ void setup()
 { 
 pinMode(LedPin,OUTPUT);//設置數位IO腳模式，OUTPUT為Output 
  pinMode(DPin,INPUT);//定義digital為輸入介面
- digitalWrite(DPin,LOW) ;
-  Serial.begin(9600);//設定串列傳輸速率為9600
+ //pinMode(APin,INPUT);//定義為類比輸入介面
+ 
+
+  Serial.begin(115200);//設定串列傳輸速率為115200} 
 }
 void loop() {
 
@@ -19,12 +20,11 @@ void loop() {
     Serial.print(val);
     Serial.print("\n");
  
-    if (val ==0)
+    if (val ==1)
     {
           if (val != oldval)
             {
                  digitalWrite(LedPin,HIGH)  ; 
-                   delay(2000);  
                   oldval= val ;
             }
     }
@@ -33,9 +33,8 @@ void loop() {
           if (val != oldval)
             {
                digitalWrite(LedPin,LOW)  ; 
+               delay(2000); 
                 oldval= val ;
             }
       }
- 
-
-} 
+}
